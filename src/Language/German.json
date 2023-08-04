@@ -1,0 +1,25 @@
+{
+    "Nav":{
+        "Home": "HomeDE",
+        "Chatbot": "Chatbot",
+        "Services": "Services",
+        "DBDownload": "DBDownload",
+        "DBUpload": "DBUpload",
+        "Login": "Login"
+    },
+    "Contact": {
+        "Title": "Kontakt",
+        "Company": "Firma*",
+        "ContactPerson": "Kontaktperson*",
+        "EMail": "E-Mail Adresse*",
+        "Message": "Nachricht*",
+        "ChooseDate": "Wähle einen Termin",
+        "WriteMessage": "Nachricht schreiben",
+        "OnlineMeeting": "MS Teams Meeting vereinbaren",
+        "SendNow": "senden",
+        "SuccessMessage1": "Danke für die Nachricht.",
+        "SuccessMessage2": "Wir werden uns so bald wie möglich bei Ihnen melden.",
+        "ErrorMessage1": "Die Nachricht konnte nicht verschickt werden!",
+        "ErrorMessage2": "Bitte senden Sie uns eine E-Mail an kontaktformular@tecfox.ch."
+      }
+}

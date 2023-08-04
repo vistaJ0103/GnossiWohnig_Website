@@ -1,0 +1,26 @@
+{
+    "Nav":{
+        "Home": "Home",
+        "Chatbot": "Chatbot",
+        "Services": "Services",
+        "DBDownload": "DBDownload",
+        "DBUpload": "DBUpload",
+        "Contact": "Contact",
+        "Login": "Login"
+    },
+    "Contact": {
+        "Title": "Contact",
+        "Company": "Company*",
+        "ContactPerson": "Contact Person*",
+        "EMail": "E-Mail*",
+        "Message": "Message*",
+        "ChooseDate": "Choose a date",
+        "WriteMessage": "Write a message",
+        "OnlineMeeting": "Arrange MS Teams meeting",
+        "SendNow": "send",
+        "SuccessMessage1": "Thanks for your message.",
+        "SuccessMessage2": "You will get a response via E-Mail asap.",
+        "ErrorMessage1": "Your Message could not be sent!",
+        "ErrorMessage2": "Please send an e-mail to kontaktformular@tecfox.ch."
+      }
+}
