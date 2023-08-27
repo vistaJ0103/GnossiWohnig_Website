@@ -1,11 +1,15 @@
 {
     "Nav":{
-        "Home": "HomeDE",
-        "Chatbot": "Chatbot",
-        "Services": "Services",
-        "DBDownload": "DBDownload",
-        "DBUpload": "DBUpload",
-        "Login": "Login"
+        "Home": "Home",
+        "Infos": "Genossenschaften",
+        "Kontakt": "Kontakt"
+    },
+    "Home": {
+        "Title": "Genossenschaftswohnung in Zürich finden",
+        "Subtitle": "Freie Wohnungen von über 20 Genossenschaften werden hier publiziert",
+        "AppArgue1": "Verpasse nie eine Gelegenheit! Erhalte Benachrichtigungen sobald eine Wohnung inseriert wird.",
+        "AppArgue2": "Habe stehts den Überblick über verfügbare Wohnungen",
+        "AppArgue3": "Speichere deine Sucheinstellungen"
     },
     "Contact": {
         "Title": "Kontakt",

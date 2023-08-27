@@ -42,8 +42,6 @@ const StyledBurgerButton = styled.button`
 `;
 
 const BurgerButton = ({ open, setOpen, ...props }) => {
-  const isExpanded = open ? true : false;
-
   return (
     <StyledBurgerButton open={open} onClick={() => setOpen(!open)} {...props}>
       <StyledBar />

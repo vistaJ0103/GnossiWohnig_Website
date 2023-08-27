@@ -1,12 +1,15 @@
 {
     "Nav":{
         "Home": "Home",
-        "Chatbot": "Chatbot",
-        "Services": "Services",
-        "DBDownload": "DBDownload",
-        "DBUpload": "DBUpload",
-        "Contact": "Contact",
-        "Login": "Login"
+        "Infos": "Cooperatives",
+        "Contact": "Contact"
+    },
+    "Home": {
+        "Title": "Find a Cooperative Apartement in Zürich",
+        "Subtitle": "Vacant apartments from over 20 cooperatives in Zurich are published here",
+        "AppArgue1": "Never miss a opportunity! Receive notifications as soon as a new Appartement is posted.",
+        "AppArgue2": "Always have an overview over the free apartements",
+        "AppArgue3": "Save your search settings"
     },
     "Contact": {
         "Title": "Contact",

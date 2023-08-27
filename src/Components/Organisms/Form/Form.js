@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { SendButton, ArrowRight, ButtonContent, Spinner } from "./SendButton";
-import { callCloudFunctionWithAppCheck } from "../../firebaseProvider";
+import { callCloudFunctionWithAppCheck } from "../../../firebaseProvider";
 
 const sendingStatus = {
   notSent: 0,

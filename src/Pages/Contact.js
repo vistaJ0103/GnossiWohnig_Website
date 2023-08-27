@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Form from "../Components/Form/Form";
-import FormInput from "../Components/Form/FormInput";
+import Form from "../Components/Organisms/Form/Form";
+import FormInput from "../Components/Organisms/Form/FormInput";
 import { useTranslation } from "react-i18next";
 
 const FormContainer = styled.div`

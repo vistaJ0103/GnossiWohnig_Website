@@ -11,11 +11,11 @@ const NavLink = styled(Link)`
   color: ${(props) => props.theme.colors.navFontColor};
 
   &.active {
-    color: ${(props) => props.theme.colors.primary};
+    color: white;
   }
 
   &:hover {
-    color: ${(props) => props.theme.colors.primary};
+    color: white;
   }
 `;
 

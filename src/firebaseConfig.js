@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyC8rclxyqvLQH3gt5B5ZRa6UKwBHQvXNDk",
-  authDomain: "websitevorlage.firebaseapp.com",
-  projectId: "websitevorlage",
-  storageBucket: "websitevorlage.appspot.com",
-  messagingSenderId: "1046324567199",
-  appId: "1:1046324567199:web:c36aebfa79063a38e956aa",
-  measurementId: "G-16KJDP6R75",
+  apiKey: "AIzaSyDoPyV11X1-HBgUy9ZxjX5oT3ljWutHD-o",
+  authDomain: "gnossiwohnig.firebaseapp.com",
+  projectId: "gnossiwohnig",
+  storageBucket: "gnossiwohnig.appspot.com",
+  messagingSenderId: "785702256902",
+  appId: "1:785702256902:web:aa9cab56fa0c8a9b915e87",
+  measurementId: "G-T1P295Y65Q",
 };
 
 export default firebaseConfig;

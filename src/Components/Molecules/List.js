@@ -1,51 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { device } from "../Atoms/Devices";
+import Image from "../Atoms/Image";
 
 const StyledList = styled.ul`
-  margin-left: ${(props) => props.left || "10px"};
   list-style-type: ${(props) => props.listStyleType || "disc"};
-
-  @media ${device.mobile} {
-    padding-inline-start: 20px;
   }
 `;
 const StyledListItem = styled.li`
-  font-size: 18px;
-  line-height: ${(props) => props.lineHight || "33px"};
-
+  margin-top: ${(props) => props.marginTop || "5px"};
+  margin-bottom: ${(props) => props.marginBottom || "5px"};
   &::marker {
-    font-size: 25px;
-    color: ${(props) => props.theme.colors.primary};
-  }
-  @media ${device.tablet} {
-    font-size: ${(props) => props.fontSizeTablet || props.fontSize || "15px"};
-    line-height: ${(props) =>
-      props.lineHightTablet || props.lineHight || "25px"};
-  }
-  @media ${device.mobile} {
-    font-size: ${(props) =>
-      props.fontSizeMobile || props.fontSizeTablet || props.fontSize || "13px"};
-    line-height: ${(props) =>
-      props.lineHightMobile ||
-      props.lineHightTablet ||
-      props.lineHight ||
-      "20px"};
-    &::marker {
-      font-size: 20px;
-    }
+    font-size: ${(props) => props.markerSize || "inherit"};
+    color: ${(props) => props.markerColor || props.theme.colors.primary};
   }
 `;
 
-const List = (props) => {
+export const List = (props) => {
   return (
-    <StyledList left={props.left} listStyleType={props.listStyleType}>
+    <StyledList
+      marginLeft={props.marginLeft}
+      listStyleType={props.listStyleType}
+    >
       {props.list?.map((l, i) => (
         <StyledListItem
-          lineHight={props.lineHight}
-          paddingBottom={props.paddingBottom}
-          paddingBottomTablet={props.paddingBottomTablet}
-          sizeMobile={props.sizeMobile}
+          marginTop={props.marginTop}
+          marginBottom={props.marginBottom}
+          markerSize={props.markerSize}
+          markerColor={props.markerColor}
+          height={props.height}
           key={i}
         >
           {l}
@@ -55,4 +37,35 @@ const List = (props) => {
   );
 };
 
-export default List;
+const StyledCListItem = styled.div`
+  margin-top: ${(props) => props.marginTop || "5px"};
+  margin-bottom: ${(props) => props.marginBottom || "5px"};
+  margin-left: ${(props) => props.marginLeft || "10px"};
+  display: flex;
+`;
+
+const StyledCListItemText = styled.div`
+  margin-left: 15px;
+`;
+
+export const CustomList = (props) => {
+  return (
+    <>
+      {props.list?.map((l, i) => (
+        <StyledCListItem
+          key={i}
+          marginTop={props.marginTop}
+          marginBottom={props.marginBottom}
+          marginLeft={props.marginLeft}
+        >
+          <Image
+            width={props.markerWidth}
+            height={props.markerHeight}
+            src={props.marker}
+          />
+          <StyledCListItemText>{l}</StyledCListItemText>
+        </StyledCListItem>
+      ))}
+    </>
+  );
+};
