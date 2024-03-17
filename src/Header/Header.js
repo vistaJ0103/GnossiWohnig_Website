@@ -10,7 +10,7 @@ const HeaderContainer = styled.nav`
   justify-content: right;
   padding: 10px 20px;
   z-index: 10;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
 `;

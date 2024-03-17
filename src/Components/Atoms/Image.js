@@ -4,6 +4,9 @@ import { device } from "./Devices";
 const Image = styled.img`
   width: ${(props) => props.width || "auto"};
   height: ${(props) => props.height || "auto"};
+  display: block;
+  margin-left: ${(props) => props.marginLeft || "auto"};
+  margin-right: ${(props) => props.marginRight || "auto"};
 
   @media ${device.tablet} {
     width: ${(props) => props.widthTablet || props.width || "auto"};

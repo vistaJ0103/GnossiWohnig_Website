@@ -5,10 +5,11 @@ import { device } from "../../Components/Atoms/Devices";
 import Section from "../../Components/Atoms/Section";
 import Text from "../../Components/Atoms/Text";
 import { getCollection } from "../../firebaseProvider";
-import BackgroundImage from "../../Assets/header.png";
+import BackgroundImage from "../../Assets/header2.jpg";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
 import AdApp from "./AdApp";
 import FreeObjects from "./FreeObjects";
+import Payment from "../../Components/Molecules/Payment";
 
 const Title = styled.h1`
   font-size: 55px;
@@ -22,17 +23,18 @@ const Title = styled.h1`
   @media ${device.tablet} {
     font-size: 20px;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
 
   @media ${device.mobile} {
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 30px;
+    width: 90%;
   }
 `;
 
-const Home = (props) => {
+const Home = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [freeObjects, setFreeObjects] = useState();
@@ -45,18 +47,40 @@ const Home = (props) => {
 
   return (
     <>
-      <HeaderSection pt="100px" pb="200px" backgroundImage={BackgroundImage}>
+      <HeaderSection
+        pt="100px"
+        pb="250px"
+        ptTablet="90px"
+        pbTablet="150px"
+        ptMobile="80px"
+        pbMobile="100px"
+        backgroundImage={BackgroundImage}
+      >
         <Title>{t("Home.Title")}</Title>
-        <Text color={theme.colors.white} size="18px">
+        <Text
+          color={theme.colors.white}
+          size="18px"
+          sizeTablet="14px"
+          sizeMobile="14px"
+          width="70%"
+          widthMobile="80%"
+        >
           {t("Home.Subtitle")}
         </Text>
       </HeaderSection>
-      <Section pt="100px" pb="100px" backgroundColor={theme.colors.secundary}>
+      <Section
+        pt="100px"
+        pb="100px"
+        ptTablet="80px"
+        ptMobile="60px"
+        width="80%"
+      >
         <AdApp />
       </Section>
-      <Section backgroundColor={theme.colors.primary} pb="100px" pt="100px">
+      <Section pb="100px" pt="100px" backgroundColor={theme.colors.secundary}>
         <FreeObjects />
       </Section>
+      <Payment />
     </>
   );
 };

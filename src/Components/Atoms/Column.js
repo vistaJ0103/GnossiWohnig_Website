@@ -7,13 +7,13 @@ const Column = styled.div`
   margin-bottom: ${(props) => props.marginBottom || "0px"};
   margin-left: ${(props) => props.marginLeft || "0px"};
   margin-right: ${(props) => props.marginRight || "0px"};
+  text-align: ${(props) => props.textAlign || "left"};
 
   @media ${device.tablet} {
     width: ${(props) => props.widthTablet || "90%"};
     margin-bottom: ${(props) =>
       props.marginBottomTablet || props.marginBottom || "0px"};
-    margin-top: ${(props) =>
-      props.marginTopTablet || props.marginBottom || "0px"};
+    margin-top: ${(props) => props.marginTopTablet || props.marginTop || "0px"};
     margin-left: ${(props) =>
       props.marginLeftTablet || props.marginLeft || "0px"};
     margin-right: ${(props) =>

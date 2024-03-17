@@ -12,7 +12,7 @@ const BurgerLink = styled(Link)`
   color: ${(props) => props.theme.colors.burgerFontColor};
 
   &.active {
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
   }
 `;
 

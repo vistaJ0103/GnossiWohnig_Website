@@ -14,8 +14,8 @@ const LngDropdownContent = styled.div`
   background-color: ${(props) => props.theme.colors.lngDropdownBGColor};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  padding: 8px 0px;
-  margin-top: 10px;
+  padding: 5px 0px;
+  margin-top: 0px;
 `;
 
 const StyledChevron = styled(FaChevronDown)`
@@ -44,7 +44,7 @@ const LngDropdownButton = styled.div`
   }
 
   &:hover ${StyledChevron} {
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
     animation: ${rotation} 0.2s linear;
     animation-fill-mode: forwards;
   }
@@ -58,8 +58,8 @@ const LngDropdownItem = styled.button`
   text-decoration: none;
   display: flex;
   text-align: left;
-  padding: 10px 0px;
-  margin: 0px 20px;
+  padding: 2px 0px;
+  margin: 0px 10px;
   align-items: center;
   border: none;
   outline: none;

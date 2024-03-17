@@ -5,6 +5,7 @@ const Section = styled.section`
   position: relative;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "auto"};
+  min-height: ${(props) => props.minHeight || "auto"};
   padding-left: ${(props) => props.pl || 0};
   padding-top: ${(props) => props.pt || 0};
   padding-bottom: ${(props) => props.pb || 0};

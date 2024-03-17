@@ -88,32 +88,3 @@ const BurgerDropdown = (props) => {
 };
 
 export default BurgerDropdown;
-
-/*
-const BurgerDropdownButton = styled(Link)`
-  display: flex;
-  justify-content: space-between;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover ${StyledChevron} {
-    color: ${(props) => props.theme.colors.primary};
-    animation: ${rotation} 0.2s linear;
-    animation-fill-mode: forwards;
-  }
-
-  &.active ${Label} {
-    color: ${(props) => props.theme.colors.primary};
-  }
-
-  &.active ${StyledChevron} {
-    color: ${(props) => props.theme.colors.primary};
-  }
-`;
-
-<BurgerDropdownButton
-to=""
-isActive={props.isActive}
-onClick={toggleShowDropdown}
->
-*/

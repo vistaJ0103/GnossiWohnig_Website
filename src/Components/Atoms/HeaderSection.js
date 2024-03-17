@@ -9,12 +9,17 @@ const HeaderSection = styled.section`
   padding-top: ${(props) => props.pt || 0};
   padding-bottom: ${(props) => props.pb || 0};
   padding-right: ${(props) => props.pr || 0};
-  background: ${(props) => props.backgroundColor || props.theme.colors.primary};
+  margin: auto;
   background-image: url(${(props) => props.backgroundImage || "transparent"});
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: ${(props) => props.backgroundSize || "100%"};
-  margin: auto;
+  background-color: #000000;
+  opacity: 1;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 
   @media ${device.tablet} {
     width: ${(props) => props.widthTablet || props.width || "100%"};

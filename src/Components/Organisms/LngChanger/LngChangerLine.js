@@ -23,8 +23,8 @@ const LngP = styled.p`
   curser: pointer;
   color: ${(props) =>
     props.active
-      ? props.theme.colors.primary
-      : props.theme.colors.lngFontColor};
+      ? props.theme.colors.white
+      : props.theme.colors.lngLineFontColor};
 `;
 
 const LngChangerLine = () => {

@@ -29,8 +29,8 @@ const Form = (props) => {
 
   const handleSubmit = () => {
     if (
-      form.name === "" ||
-      form.contactPerson === "" ||
+      form.firstName === "" ||
+      form.lastName === "" ||
       form.email === "" ||
       form.message === ""
     ) {

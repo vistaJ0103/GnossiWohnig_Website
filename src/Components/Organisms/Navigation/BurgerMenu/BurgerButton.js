@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledBar = styled.span`
   width: 2rem;
   height: 0.25rem;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
   transition: all 0.3s linear;
   position: relative;

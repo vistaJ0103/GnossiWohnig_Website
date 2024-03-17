@@ -8,14 +8,16 @@ const NavLink = styled(Link)`
   padding: 0 20px;
   height: 100%;
   curser: pointer;
-  color: ${(props) => props.theme.colors.navFontColor};
+  color: white;
 
   &.active {
     color: white;
+    font-weight: bold;
   }
 
   &:hover {
     color: white;
+    font-weight: bold;
   }
 `;
 

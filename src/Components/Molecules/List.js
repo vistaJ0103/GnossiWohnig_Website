@@ -42,6 +42,7 @@ const StyledCListItem = styled.div`
   margin-bottom: ${(props) => props.marginBottom || "5px"};
   margin-left: ${(props) => props.marginLeft || "10px"};
   display: flex;
+  align-items: center;
 `;
 
 const StyledCListItemText = styled.div`
@@ -61,6 +62,8 @@ export const CustomList = (props) => {
           <Image
             width={props.markerWidth}
             height={props.markerHeight}
+            marginLeft="0px"
+            marginRight="5px"
             src={props.marker}
           />
           <StyledCListItemText>{l}</StyledCListItemText>

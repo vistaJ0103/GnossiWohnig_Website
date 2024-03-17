@@ -27,14 +27,18 @@ const Text = styled.p`
     margin-top: ${(props) => props.marginTopTablet || props.marginTop};
     margin-bottom: ${(props) => props.marginBottomTablet || props.marginBottom};
     text-align: ${(props) => props.alignTablet || props.align || "center"};
+    display: ${(props) => props.displayTablet || "inherit"};
   }
 
   @media ${device.mobile} {
+    width: ${(props) => props.widthMobile || "100%"};
     font-size: ${(props) => props.sizeMobile || props.size};
     margin-top: ${(props) => props.marginTopMobile || props.marginTopTablet};
     margin-bottom: ${(props) =>
       props.marginBottomMobile || props.marginBottomTablet};
     text-align: ${(props) => props.alignMobile || props.align || "center"};
+    display: ${(props) => props.displayMobile || "inherit"};
+    font-weight: ${(props) => props.weightMobile || "inherit"};
   }
 `;
 
