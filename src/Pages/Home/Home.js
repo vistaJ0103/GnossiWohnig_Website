@@ -9,7 +9,6 @@ import BackgroundImage from "../../Assets/header2.jpg";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
 import AdApp from "./AdApp";
 import FreeObjects from "./FreeObjects";
-import Payment from "../../Components/Molecules/Payment";
 
 const Title = styled.h1`
   font-size: 55px;
@@ -80,7 +79,6 @@ const Home = () => {
       <Section pb="100px" pt="100px" backgroundColor={theme.colors.secundary}>
         <FreeObjects />
       </Section>
-      <Payment />
     </>
   );
 };
