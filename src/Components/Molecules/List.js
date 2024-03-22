@@ -65,6 +65,7 @@ export const CustomList = (props) => {
             marginLeft="0px"
             marginRight="5px"
             src={props.marker}
+            alt="Marker"
           />
           <StyledCListItemText>{l}</StyledCListItemText>
         </StyledCListItem>

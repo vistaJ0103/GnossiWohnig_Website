@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  SubmitButton,
-  ButtonContent,
-  Spinner,
-  ButtonContentBig,
-} from "../Buttons";
+import { SubmitButton, Spinner } from "../Buttons";
 import {
   createUserWithEmailAndPassword,
   useAuth,
@@ -12,6 +7,14 @@ import {
 import Text from "../../../Atoms/Text";
 import { useTranslation } from "react-i18next";
 import { useAuthErrStore } from "../../../../stateManager";
+import styled from "styled-components";
+
+export const ButtonContent = styled.div`
+  width: 90px;
+  height: 20px;
+  display: block;
+  align-items: center;
+`;
 
 const RegisterForm = ({ children }) => {
   const [form, setform] = useState({
@@ -93,7 +96,7 @@ const RegisterForm = ({ children }) => {
       {showSpinner === true ? (
         <>
           {childrenWithProps}
-          <SubmitButton>
+          <SubmitButton aria-label="Lädt">
             <ButtonContent>
               <Spinner />
             </ButtonContent>
@@ -102,12 +105,12 @@ const RegisterForm = ({ children }) => {
       ) : (
         <>
           {childrenWithProps}
-          <SubmitButton onClick={handleRegister}>
-            <ButtonContentBig>
+          <SubmitButton onClick={handleRegister} aria-label="Registrieren">
+            <ButtonContent>
               <Text color="white" size="16px">
                 {t("Auth.Register")}
               </Text>
-            </ButtonContentBig>
+            </ButtonContent>
           </SubmitButton>
         </>
       )}

@@ -45,6 +45,7 @@ const FormInput = (props) => {
     <div>
       {!props.multiline ? (
         <InputField
+          aria-label={props.name}
           onChange={(e) => props.setValue(props.name, e.target.value)}
           {...props}
         />

@@ -45,12 +45,18 @@ const Auth = () => {
 
       {formState === "Login" && (
         <Row>
-          <TextButton onClick={() => setFormState("Register")}>
+          <TextButton
+            aria-label="Registrieren"
+            onClick={() => setFormState("Register")}
+          >
             <Text color={theme.colors.primary} size="12px" weight="bold">
               {t("Auth.Register")}
             </Text>
           </TextButton>
-          <TextButton onClick={() => setFormState("PasswordReset")}>
+          <TextButton
+            aria-label="Passwort zurücksetzen"
+            onClick={() => setFormState("PasswordReset")}
+          >
             <Text color={theme.colors.primary} size="12px" weight="bold">
               {t("Auth.ForgotPassword")}
             </Text>
@@ -59,7 +65,7 @@ const Auth = () => {
       )}
       {formState !== "Login" && (
         <Row>
-          <TextButton onClick={() => setFormState("Login")}>
+          <TextButton aria-label="Login" onClick={() => setFormState("Login")}>
             <Text color={theme.colors.primary} size="12px" weight="bold">
               {t("Auth.Login")}
             </Text>

@@ -95,10 +95,16 @@ const LngChangerDropdown = () => {
       <StyledChevron />
       <LngPTitle>{value}</LngPTitle>
       <LngDropdownContent>
-        <LngDropdownItem onClick={() => handleSelect("en")}>
+        <LngDropdownItem
+          onClick={() => handleSelect("en")}
+          aria-label="englisch"
+        >
           <LngP>en</LngP>
         </LngDropdownItem>
-        <LngDropdownItem onClick={() => handleSelect("de")}>
+        <LngDropdownItem
+          onClick={() => handleSelect("de")}
+          aria-label="deutsch"
+        >
           <LngP>de</LngP>
         </LngDropdownItem>
       </LngDropdownContent>

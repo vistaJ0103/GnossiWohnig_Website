@@ -29,7 +29,7 @@ const AdApp = () => {
     <Row alignItems="center">
       <Column width="30%" marginBottomTablet="30px">
         <ImgContainer>
-          <Image src={AppLogo} width="120px" />
+          <Image src={AppLogo} width="120px" alt="Logo" />
         </ImgContainer>
         <Text size="18px" marginTop="20px" weight="400">
           {t("Home.App")}
@@ -58,8 +58,16 @@ const AdApp = () => {
             {t("Home.NowAvailable")}
           </Text>
           <Row justify="center" isRow={true} isRowOnMobile={true}>
-            <IconLinkButton link="" icon={LogoAppStore} />
-            <IconLinkButton link="" icon={LogoPlayStore} />
+            <IconLinkButton
+              aria-label="App Store"
+              link=""
+              icon={LogoAppStore}
+            />
+            <IconLinkButton
+              aria-label="Play Store"
+              link="https://play.google.com/store/apps/details?id=com.nelinik.gnossi_wohnig"
+              icon={LogoPlayStore}
+            />
           </Row>
         </Background>
       </Column>

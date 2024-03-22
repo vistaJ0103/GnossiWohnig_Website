@@ -34,7 +34,12 @@ const ObjectCard = ({ data }) => {
           marginTop="20px"
           marginBottom="20px"
         >
-          <Image width="110px" height="110px" src={imgUrl}></Image>
+          <Image
+            width="110px"
+            height="110px"
+            src={imgUrl}
+            alt="Vorschau"
+          ></Image>
         </Column>
         <Column
           width="75%"

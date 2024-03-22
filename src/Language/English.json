@@ -34,7 +34,8 @@
         "RegisterSuccess": "Successfully registered. Confirm your e-mail address via the link we sent you by e-mail.",
         "PasswordResetSuccess": "We sent you an email to reset your password.",
         "Logout": "Logout",
-        "LoggedInAs": "Logged in with:"
+        "LoggedInAs": "Logged in with:",
+        "Reset": "Reset"
     },
     "Home": {
         "Title": "Find a Cooperative Apartement in Zürich",
