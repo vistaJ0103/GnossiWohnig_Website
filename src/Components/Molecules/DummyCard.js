@@ -20,13 +20,13 @@ const CardContainer = styled.button`
   cursor: pointer;
 `;
 
-const ObjectCard = ({ data }) => {
+const ObjectCard = ({ data,onclick }) => {
   const imgUrl = data.previewImgUrl === "" ? DummyHouse : data.previewImgUrl;
   const { t } = useTranslation();
   const theme = useTheme();
 
   return (
-    <CardContainer>
+    <CardContainer onClick={()=>{ onclick()}}>
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <Column
           width="15%"

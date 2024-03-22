@@ -6,6 +6,7 @@ import Row from "../../Components/Atoms/Row";
 import Column from "../../Components/Atoms/Column";
 import Card from "../../Components/Molecules/Card";
 import {
+  callCloudFunctionWithAppCheck,
   checkIfProUser,
   streamCollection,
   useAuth,
@@ -14,7 +15,8 @@ import SwitchButton from "../../Components/Molecules/SwitchButton";
 import Text from "../../Components/Atoms/Text";
 import DummyCard from "../../Components/Molecules/DummyCard";
 import Spinner from "../../Components/Atoms/Spinner";
-
+import Modal from 'react-modal';
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -34,8 +36,23 @@ const SubTitle = styled.h2`
     margin-bottom: 30px;
   }
 `;
-
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 const FreeObjects = () => {
+  function useQuery() {
+    const { search } = useLocation();
+  
+    return React.useMemo(() => new URLSearchParams(search), [search]);
+  }
+  let query = useQuery();
   const { t } = useTranslation();
   const [objectsInView, setObjectsInView] = useState(null);
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -44,6 +61,7 @@ const FreeObjects = () => {
   const [modSnapshots, setModSnapshots] = useState(null);
   const [delSnapshots, setDelSnapshots] = useState(null);
   const [proUser, setProUser] = useState(null);
+  const [modalIsOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
 
   if (proUser == null && user) {
@@ -51,7 +69,23 @@ const FreeObjects = () => {
       setProUser(res);
     });
   }
-
+  useEffect(() => {
+    if(query.get('id') &&proUser == null && user){
+      callCloudFunctionWithAppCheck("sendStripeTokens", {
+        app_user_id: user.uid,
+        fetch_token: query.get('id')
+    }).then((response)=>{
+        console.log('Successfully sent',response)
+        checkIfProUser(user.uid).then((res) => {
+          setProUser(res);
+        });
+  
+      }).catch((error)=>{
+        console.log(error);
+      })
+    }
+    
+  }, [query.get('id')]);
   const sortObjects = (obj) => {
     var res = null;
 
@@ -151,6 +185,20 @@ const FreeObjects = () => {
 
   return (
     <>
+     <Modal
+        isOpen={modalIsOpen}
+        
+        onRequestClose={()=>setIsOpen(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+       <Row justify="center" isRow={true} isRowOnMobile={true}>
+       <stripe-buy-button
+  buy-button-id="buy_btn_1OxAwNA0PZbui0YFoMEai8iv"
+  publishable-key="pk_live_51Oc542A0PZbui0YFdbDHthOxmRJ1iQTynGsUO43SVyfAu4Qnk5HxDNqpGSIVxeI4xdkt9FXfCE008mcVEeaW298L00zUHCEiL0"
+>
+</stripe-buy-button></Row>
+      </Modal>
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <SubTitle>{t("Home.FreeObjects")}</SubTitle>
       </Row>
@@ -182,7 +230,12 @@ const FreeObjects = () => {
                 proUser ? (
                   <Card key={element.id} data={element} />
                 ) : (
-                  <DummyCard key={element.id} data={element} />
+                  <DummyCard onclick= {()=>{
+                    if(user && user?.uid){
+                      setIsOpen(true)
+                    }
+                    
+                  }} key={element.id} data={element} />
                 )
               )
             )
