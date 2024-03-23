@@ -18,6 +18,8 @@ import DummyCard from "../../Components/Molecules/DummyCard";
 import Spinner from "../../Components/Atoms/Spinner";
 import Modal from "react-modal";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { ErrorCode, Purchases, PurchasesError } from "@revenuecat/purchases-js";
+
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -71,23 +73,38 @@ const FreeObjects = () => {
       setProUser(res);
     });
   }
-
+  // const appUserId = "srIJXEwejaPNhNuV8ZFa0RdK2H82" // Replace with your own authentication system
+  // const purchases = Purchases.configure("strp_xMmkgqSTVEydddECniZXvnbYznu", appUserId);
+ 
+ 
   useEffect(() => {
+ 
     console.log("use effect", isSignedIn, query.get("id"));
 
     if (query.get("id") && isSignedIn) {
-      callCloudFunctionWithAppCheck("sendStripeTokens", {
-        app_user_id: user.uid,
-        fetch_token: query.get("id"),
+      callCloudFunctionWithAppCheck("getpaymentDetails", {
+        sessionId: "cs_live_a13HRRwKfVJ6Me8D817AlGvBBYDrG5nKmFxpn65IRAeRY8WMJEhOBiNsb5",
+        
       })
         .then((response) => {
-          console.log("Successfully sent", response);
-          setProUserStatus(user.uid, true);
-          setProUser(true);
+console.log('Response Payment Details',response);
+
+        }).catch((error) => {
+          console.log('Error response',error);
+
         })
-        .catch((error) => {
-          console.log("sendStripeToken failed:", error);
-        });
+      // callCloudFunctionWithAppCheck("getpaymentDetails", {
+      //   app_user_id: user.uid,
+      //   fetch_token: query.get("id"),
+      // })
+      //   .then((response) => {
+      //     console.log("Successfully sent", response);
+      //     setProUserStatus(user.uid, true);
+      //     setProUser(true);
+      //   })
+      //   .catch((error) => {
+      //     console.log("sendStripeToken failed:", error);
+      //   });
     }
   }, [query.get("id"), isSignedIn]);
 
