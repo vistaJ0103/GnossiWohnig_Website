@@ -18,8 +18,6 @@ import DummyCard from "../../Components/Molecules/DummyCard";
 import Spinner from "../../Components/Atoms/Spinner";
 import Modal from "react-modal";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import axios from "axios";
-import {Store} from "@revenuecat/purchases-js"
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -74,79 +72,15 @@ const FreeObjects = () => {
       setProUser(res);
     });
   }
-
- const sendAccessToken =async()=>{
-  const encodedUserId = encodeURIComponent("srIJXEwejaPNhNuV8ZFa0RdK2H82");
-
-//   const requestData = {
-//     "app_user_id": "srIJXEwejaPNhNuV8ZFa0RdK2H82",
-//     "fetch_token": "sub_1OxkmmA0PZbui0YFojuj6gzo",
-//     "product_id": "prod_PmJJs4RNKr7hz0",
-    
-  
-//     // attributes: { "stripe_customer_id": { value: "cus_PnLTqHAQbcoj7V" } }
-
-// };
-// const config = {
-//     headers: {
-//         'X-Platform': 'stripe',
-//         'Authorization': 'Bearer sk_nEQIAZIyakfaXoXKAQEHntprkYFNW',
-//         'Content-Type': 'application/json',                 
-//                'Accept': '*/*' 
-//     }
-// };
-// let formData = new FormData();
-// formData.append('app_user_id', 'srIJXEwejaPNhNuV8ZFa0RdK2H82');
-// formData.append('fetch_token', 'sub_1OxkmmA0PZbui0YFojuj6gzo');
-//   axios({
-//     url:`https://api.revenuecat.com/v2/receipts?app_user_id=${encodedUserId}`,
-//     method:'post',data:requestData,
-//     headers:config.headers
-//   }).then((response)=>{
-
-// console.log('Axios Successful Response',response);
-//   }).catch((error)=>{
-//     console.log('Axios Error Response',error);
-//   })
-
-  const _response = await fetch('https://api.revenuecat.com/v1/receipts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Platform': 'stripe',
-                'Authorization': 'Bearer ' + "strp_xMmkgqSTVEydddECniZXvnbYznu",
-            },
-            body: JSON.stringify({
-                fetch_token: "sub_1OxkmmA0PZbui0YFojuj6gzo",
-                app_user_id: "srIJXEwejaPNhNuV8ZFa0RdK2H82",
-            }),
-          });
-
-          console.log('asdhlkjsahdjlhajsld',_response.json());
- }
   useEffect(() => {
-    sendAccessToken()
 
     if (query.get("id") && isSignedIn) {
-      callCloudFunctionWithAppCheck("getpaymentDetails", {
-        sessionId: "cs_test_a1Euj9a1MRQYUL5sEwKjs4pun5aZx0o6V21RSnNZPQmTDr1mQSbG0UyyY1",
-        
-      })
-        .then((response) => {
-console.log('Response Payment Details',response);
-
-        }).catch((error) => {
-          console.log('Error response',error);
-
-        })
-
-       
+      //Send subscription token
       callCloudFunctionWithAppCheck("sendStripeTokens", {
         app_user_id: user.uid,
         fetch_token: query.get("id"),
       })
         .then((response) => {
-          console.log("Successfully sent", response);
           setProUserStatus(user.uid, true);
           setProUser(true);
         })
@@ -263,9 +197,9 @@ console.log('Response Payment Details',response);
       >
         <Row justify="center" isRow={true} isRowOnMobile={true}>
           <stripe-buy-button
-          client-reference-id={user?.uid}
-          buy-button-id="buy_btn_1OwkvbA0PZbui0YF3nyoZ11w"
-          publishable-key="pk_test_51Oc542A0PZbui0YFQYKw5YJPaJ7uhsUhMPEkEWhZiIHLQS5AEDqQxOrYabkILRkmQWUDjV7B6zkK5MqKrVed48PI00ccv7m2ll"
+            client-reference-id={user?.uid}
+            buy-button-id="buy_btn_1OxAwNA0PZbui0YFoMEai8iv"
+            publishable-key="pk_live_51Oc542A0PZbui0YFdbDHthOxmRJ1iQTynGsUO43SVyfAu4Qnk5HxDNqpGSIVxeI4xdkt9FXfCE008mcVEeaW298L00zUHCEiL0"
           ></stripe-buy-button>
         </Row>
       </Modal>
