@@ -75,34 +75,61 @@ const FreeObjects = () => {
     });
   }
 
- const sendAccessToken =()=>{
-  const requestData = {
-    app_user_id: "srIJXEwejaPNhNuV8ZFa0RdK2H82",
-    fetch_token: "sub_1OxaFiA0PZbui0YFLD4DpC4w",
-    attributes: { "stripe_customer_id": { value: "cus_PnAaQRyB0j3DdW" } }
+ const sendAccessToken =async()=>{
+  const encodedUserId = encodeURIComponent("srIJXEwejaPNhNuV8ZFa0RdK2H82");
 
-};
-const config = {
-    headers: {
-        'Content-Type': 'application/json',
-        'X-Platform': 'stripe',
-        'Authorization': 'Bearer strp_xMmkgqSTVEydddECniZXvnbYznu'
-    }
-};
+//   const requestData = {
+//     "app_user_id": "srIJXEwejaPNhNuV8ZFa0RdK2H82",
+//     "fetch_token": "sub_1OxkmmA0PZbui0YFojuj6gzo",
+//     "product_id": "prod_PmJJs4RNKr7hz0",
+    
+  
+//     // attributes: { "stripe_customer_id": { value: "cus_PnLTqHAQbcoj7V" } }
 
-  axios.post('https://api.revenuecat.com/v1/receipts', requestData, config).then((response)=>{
+// };
+// const config = {
+//     headers: {
+//         'X-Platform': 'stripe',
+//         'Authorization': 'Bearer sk_nEQIAZIyakfaXoXKAQEHntprkYFNW',
+//         'Content-Type': 'application/json',                 
+//                'Accept': '*/*' 
+//     }
+// };
+// let formData = new FormData();
+// formData.append('app_user_id', 'srIJXEwejaPNhNuV8ZFa0RdK2H82');
+// formData.append('fetch_token', 'sub_1OxkmmA0PZbui0YFojuj6gzo');
+//   axios({
+//     url:`https://api.revenuecat.com/v2/receipts?app_user_id=${encodedUserId}`,
+//     method:'post',data:requestData,
+//     headers:config.headers
+//   }).then((response)=>{
 
-console.log('Axios Successful Response',response);
-  }).catch((error)=>{
-    console.log('Axios Error Response',error);
-  })
+// console.log('Axios Successful Response',response);
+//   }).catch((error)=>{
+//     console.log('Axios Error Response',error);
+//   })
+
+  const _response = await fetch('https://api.revenuecat.com/v1/receipts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Platform': 'stripe',
+                'Authorization': 'Bearer ' + "strp_xMmkgqSTVEydddECniZXvnbYznu",
+            },
+            body: JSON.stringify({
+                fetch_token: "sub_1OxkmmA0PZbui0YFojuj6gzo",
+                app_user_id: "srIJXEwejaPNhNuV8ZFa0RdK2H82",
+            }),
+          });
+
+          console.log('asdhlkjsahdjlhajsld',_response.json());
  }
   useEffect(() => {
-    // sendAccessToken()
+    sendAccessToken()
 
     if (query.get("id") && isSignedIn) {
       callCloudFunctionWithAppCheck("getpaymentDetails", {
-        sessionId: "cs_live_a13HRRwKfVJ6Me8D817AlGvBBYDrG5nKmFxpn65IRAeRY8WMJEhOBiNsb5",
+        sessionId: "cs_test_a1Euj9a1MRQYUL5sEwKjs4pun5aZx0o6V21RSnNZPQmTDr1mQSbG0UyyY1",
         
       })
         .then((response) => {
@@ -237,8 +264,8 @@ console.log('Response Payment Details',response);
         <Row justify="center" isRow={true} isRowOnMobile={true}>
           <stripe-buy-button
           client-reference-id={user?.uid}
-            buy-button-id="buy_btn_1OxAwNA0PZbui0YFoMEai8iv"
-            publishable-key="pk_live_51Oc542A0PZbui0YFdbDHthOxmRJ1iQTynGsUO43SVyfAu4Qnk5HxDNqpGSIVxeI4xdkt9FXfCE008mcVEeaW298L00zUHCEiL0"
+          buy-button-id="buy_btn_1OwkvbA0PZbui0YF3nyoZ11w"
+          publishable-key="pk_test_51Oc542A0PZbui0YFQYKw5YJPaJ7uhsUhMPEkEWhZiIHLQS5AEDqQxOrYabkILRkmQWUDjV7B6zkK5MqKrVed48PI00ccv7m2ll"
           ></stripe-buy-button>
         </Row>
       </Modal>
