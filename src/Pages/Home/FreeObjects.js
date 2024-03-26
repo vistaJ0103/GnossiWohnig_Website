@@ -19,7 +19,7 @@ import Spinner from "../../Components/Atoms/Spinner";
 import Modal from "react-modal";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import axios from "axios";
-import {Store} from "@revenuecat/purchases-js"
+import { Store } from "@revenuecat/purchases-js";
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -75,51 +75,50 @@ const FreeObjects = () => {
     });
   }
 
- const sendAccessToken =()=>{
-  const requestData = {
-    app_user_id: "srIJXEwejaPNhNuV8ZFa0RdK2H82",
-    fetch_token: "sub_1OxaFiA0PZbui0YFLD4DpC4w",
-    attributes: { "stripe_customer_id": { value: "cus_PnAaQRyB0j3DdW" } }
+  const sendAccessToken = () => {
+    const requestData = {
+      app_user_id: "srIJXEwejaPNhNuV8ZFa0RdK2H82",
+      fetch_token: "sub_1OxaFiA0PZbui0YFLD4DpC4w",
+      attributes: { stripe_customer_id: { value: "cus_PnAaQRyB0j3DdW" } },
+    };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Platform": "stripe",
+        Authorization: "Bearer strp_xMmkgqSTVEydddECniZXvnbYznu",
+      },
+    };
 
-};
-const config = {
-    headers: {
-        'Content-Type': 'application/json',
-        'X-Platform': 'stripe',
-        'Authorization': 'Bearer strp_xMmkgqSTVEydddECniZXvnbYznu'
-    }
-};
-
-  axios.post('https://api.revenuecat.com/v1/receipts', requestData, config).then((response)=>{
-
-console.log('Axios Successful Response',response);
-  }).catch((error)=>{
-    console.log('Axios Error Response',error);
-  })
- }
+    axios
+      .post("https://api.revenuecat.com/v1/receipts", requestData, config)
+      .then((response) => {
+        console.log("Axios Successful Response", response);
+      })
+      .catch((error) => {
+        console.log("Axios Error Response", error);
+      });
+  };
   useEffect(() => {
     // sendAccessToken()
 
     if (query.get("id") && isSignedIn) {
       callCloudFunctionWithAppCheck("getpaymentDetails", {
-        sessionId: "cs_live_a13HRRwKfVJ6Me8D817AlGvBBYDrG5nKmFxpn65IRAeRY8WMJEhOBiNsb5",
-        
+        sessionId:
+          "cs_live_a13HRRwKfVJ6Me8D817AlGvBBYDrG5nKmFxpn65IRAeRY8WMJEhOBiNsb5",
       })
         .then((response) => {
-console.log('Response Payment Details',response);
-
-        }).catch((error) => {
-          console.log('Error response',error);
-
+          console.log("Response Payment Details", response);
         })
+        .catch((error) => {
+          console.log("Error response", error);
+        });
 
-       
       callCloudFunctionWithAppCheck("sendStripeTokens", {
         app_user_id: user.uid,
         fetch_token: query.get("id"),
       })
         .then((response) => {
-          console.log("Successfully sent", response);
+          console.log("Successfully sent token", response);
           setProUserStatus(user.uid, true);
           setProUser(true);
         })
@@ -236,7 +235,7 @@ console.log('Response Payment Details',response);
       >
         <Row justify="center" isRow={true} isRowOnMobile={true}>
           <stripe-buy-button
-          client-reference-id={user?.uid}
+            client-reference-id={user?.uid}
             buy-button-id="buy_btn_1OxAwNA0PZbui0YFoMEai8iv"
             publishable-key="pk_live_51Oc542A0PZbui0YFdbDHthOxmRJ1iQTynGsUO43SVyfAu4Qnk5HxDNqpGSIVxeI4xdkt9FXfCE008mcVEeaW298L00zUHCEiL0"
           ></stripe-buy-button>
