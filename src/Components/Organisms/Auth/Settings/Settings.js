@@ -37,7 +37,7 @@ const Settings = () => {
           {user.email}
         </Text>
       )}
-      <SignOutButton onClick={handleSignOut}>
+      <SignOutButton onClick={handleSignOut} aria-label="Abmelden">
         <Text color="#ffffff" size="13px">
           {t("Auth.Logout")}
         </Text>

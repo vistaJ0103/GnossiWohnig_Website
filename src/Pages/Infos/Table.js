@@ -33,7 +33,11 @@ const Table = (props) => {
     },
     {
       name: t("Infos.Link"),
-      selector: (row) => <a href={row.link}>{row.link}</a>,
+      selector: (row) => (
+        <a aria-label={row.name} href={row.link}>
+          {row.link}
+        </a>
+      ),
       sortable: true,
       grow: 2,
     },

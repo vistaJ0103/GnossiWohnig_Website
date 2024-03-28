@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SubmitButton, ButtonContent, Spinner } from "../Buttons";
+import { SubmitButton, Spinner } from "../Buttons";
 import {
   signInWithEmailAndPassword,
   useAuth,
@@ -7,6 +7,16 @@ import {
 import Text from "../../../Atoms/Text";
 import { useTranslation } from "react-i18next";
 import { useAuthErrStore } from "../../../../stateManager";
+import styled from "styled-components";
+
+export const ButtonContent = styled.div`
+  width: 40px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const LoginForm = ({ children }) => {
   const [form, setform] = useState({
@@ -84,7 +94,7 @@ const LoginForm = ({ children }) => {
       {showSpinner === true ? (
         <>
           {childrenWithProps}
-          <SubmitButton>
+          <SubmitButton aria-label="Lädt">
             <ButtonContent>
               <Spinner />
             </ButtonContent>
@@ -93,7 +103,7 @@ const LoginForm = ({ children }) => {
       ) : (
         <>
           {childrenWithProps}
-          <SubmitButton onClick={handleLogin}>
+          <SubmitButton onClick={handleLogin} aria-label="Login">
             <ButtonContent>
               <Text color="white" size="16px">
                 {t("Auth.Login")}

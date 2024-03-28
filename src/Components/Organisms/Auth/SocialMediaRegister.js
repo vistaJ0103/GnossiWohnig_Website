@@ -24,7 +24,11 @@ const SocialMediaRegister = () => {
       <Text size="18px" marginBottom="20px">
         {t("Auth.RegisterWithGoogle")}
       </Text>
-      <RoundIconButton icon={googleIcon} onClick={signIn} />
+      <RoundIconButton
+        aria-label="Registrieren mit Google"
+        icon={googleIcon}
+        onClick={signIn}
+      />
     </>
   );
 };

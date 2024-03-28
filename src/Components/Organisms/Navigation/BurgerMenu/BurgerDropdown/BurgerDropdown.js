@@ -74,6 +74,7 @@ const BurgerDropdown = (props) => {
       <BurgerDropdownButton
         className={props.isActive() ? "active" : undefined}
         onClick={toggleShowDropdown}
+        aria-label={props.label}
       >
         <Label>
           <BurgerP>{props.label}</BurgerP>
