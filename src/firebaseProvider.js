@@ -132,9 +132,26 @@ export const checkIfProUser = async (uid) => {
   }
 };
 
+export const checkIfUserSubscription = async (uid) => {
+  try {
+    const user = await getDocument("users", uid);
+    return user?.subscription;
+  } catch (err) {
+    return null;
+  }
+};
+
 export const setProUserStatus = async (uid, proStatus) => {
   try {
     await updateDocument("users", uid, { proUser: proStatus });
+  } catch (err) {
+    console.log("error updating pro user status", err);
+  }
+};
+
+export const setSubscription = async (uid, proStatus,subscription) => {
+  try {
+    await updateDocument("users", uid, { proUser: proStatus,subscription:subscription });
   } catch (err) {
     console.log("error updating pro user status", err);
   }

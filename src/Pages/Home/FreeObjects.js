@@ -9,6 +9,7 @@ import {
   callCloudFunctionWithAppCheck,
   checkIfProUser,
   setProUserStatus,
+  setSubscription,
   streamCollection,
   useAuth,
 } from "../../firebaseProvider";
@@ -18,6 +19,7 @@ import DummyCard from "../../Components/Molecules/DummyCard";
 import Spinner from "../../Components/Atoms/Spinner";
 import Modal from "react-modal";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -72,10 +74,22 @@ const FreeObjects = () => {
       setProUser(res);
     });
   }
-  useEffect(() => {
 
+  useEffect(() => {
     if (query.get("id") && isSignedIn) {
-      //Send subscription token
+      callCloudFunctionWithAppCheck("getpaymentDetails", {
+        sessionId:
+          "cs_live_a1pyTpjZMJyz2qrrdvfv12bgpJpJqiGx08Zu0CqbWFQ1Q2m82IXv8OJh8D",
+      })
+        .then((response) => {
+          if(response?.data?.subscription){
+            updateUserSubscription(response?.data?.subscription)
+          }
+        })
+        .catch((error) => {
+          console.log("Error response", error);
+        });
+
       callCloudFunctionWithAppCheck("sendStripeTokens", {
         app_user_id: user.uid,
         fetch_token: query.get("id"),
@@ -90,6 +104,15 @@ const FreeObjects = () => {
     }
   }, [query.get("id"), isSignedIn]);
 
+
+  const updateUserSubscription =(subscription)=>{
+    if(user && user?.uid && subscription){
+      setSubscription(user?.uid,true,subscription)
+    }
+
+  }
+
+  
   const sortObjects = (obj) => {
     var res = null;
 

@@ -34,7 +34,10 @@
         "RegisterSuccess": "Erfolgreich Registriert. Bestätige deine E-Mail Adresse über den Link den wir dir per Mail geschickt haben.",
         "PasswordResetSuccess": "Du hast eine E-Mail erhalten um dein Passwort zurückzusetzen.",
         "Logout": "Logout",
-        "LoggedInAs": "Eingeloggt mit der E-Mail:"
+        "LoggedInAs": "Eingeloggt mit der E-Mail:",
+        "CancelSubscription": "Abonnement beenden",
+        "CancelSubscriptionModalDescription": "Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?",
+        "CancelSubscriptionCancelButton":"Behalten Sie den Plan bei"
     },
     "Home": {
         "Title": "Genossenschaftswohnung in Zürich finden",

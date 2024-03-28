@@ -27,7 +27,7 @@ const BurgerMenu = ({ className }) => {
     } else if (isSignedIn && user.emailVerified) {
       return (
         <NavModal key="settings" buttonIcon={accountIcon}>
-          <Settings />
+          <Settings  />
         </NavModal>
       );
     } else {
