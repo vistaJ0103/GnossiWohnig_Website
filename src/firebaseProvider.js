@@ -132,6 +132,14 @@ export const checkIfProUser = async (uid) => {
   }
 };
 
+export const setProUserStatus = async (uid, proStatus) => {
+  try {
+    await updateDocument("users", uid, { proUser: proStatus });
+  } catch (err) {
+    console.log("error updating pro user status", err);
+  }
+};
+
 export const getDocument = (collection, id) => {
   return firestore
     .collection(collection)

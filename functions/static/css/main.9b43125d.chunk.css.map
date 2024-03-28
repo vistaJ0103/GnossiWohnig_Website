@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,KACI,iBAAkB,CAClB,sBACJ,CAEA,EACI,cACJ","file":"main.9b43125d.chunk.css","sourcesContent":["html {\n    overflow-x: hidden;\n    scroll-behavior: smooth;\n}\n\np {\n    font-size: 16px;\n}\n"]}
