@@ -166,7 +166,7 @@ const Settings = (props) => {
           {t("Auth.CancelSubscription")}
         </Text>
 </CancelSubscriptionButton>}
-      <SignOutButton onClick={handleSignOut}>
+      <SignOutButton onClick={handleSignOut} aria-label="Abmelden">
         <Text color="#ffffff" size="13px">
           {t("Auth.Logout")}
         </Text>

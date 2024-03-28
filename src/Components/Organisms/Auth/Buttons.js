@@ -18,22 +18,6 @@ export const SubmitButton = styled.button`
   }
 `;
 
-export const ButtonContentBig = styled.div`
-  width: 90px;
-  height: 20px;
-  display: block;
-  align-items: center;
-`;
-
-export const ButtonContent = styled.div`
-  width: 40px;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const Spinner = styled.div`
   border: 3px solid;
   border-color: ${(props) => props.theme.colors.white};

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SubmitButton, ButtonContent, Spinner } from "../Buttons";
+import { SubmitButton, Spinner } from "../Buttons";
 import Text from "../../../Atoms/Text";
 import { useTranslation } from "react-i18next";
 import {
@@ -7,6 +7,14 @@ import {
   usePasswordResetSuccessStore,
 } from "../../../../stateManager";
 import { resetPassword } from "../../../../firebaseProvider";
+import styled from "styled-components";
+
+export const ButtonContent = styled.div`
+  width: 100px;
+  height: 20px;
+  display: block;
+  align-items: center;
+`;
 
 const PasswordResetForm = ({ children }) => {
   const [form, setform] = useState({
@@ -84,7 +92,7 @@ const PasswordResetForm = ({ children }) => {
       {showSpinner === true ? (
         <>
           {childrenWithProps}
-          <SubmitButton>
+          <SubmitButton aria-label="Lädt">
             <ButtonContent>
               <Spinner />
             </ButtonContent>
@@ -93,10 +101,10 @@ const PasswordResetForm = ({ children }) => {
       ) : (
         <>
           {childrenWithProps}
-          <SubmitButton onClick={handlePasswordReset}>
+          <SubmitButton onClick={handlePasswordReset} aria-label="Login">
             <ButtonContent>
               <Text color="white" size="16px">
-                {t("Auth.Login")}
+                {t("Auth.Reset")}
               </Text>
             </ButtonContent>
           </SubmitButton>

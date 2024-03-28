@@ -43,7 +43,12 @@ const StyledBurgerButton = styled.button`
 
 const BurgerButton = ({ open, setOpen, ...props }) => {
   return (
-    <StyledBurgerButton open={open} onClick={() => setOpen(!open)} {...props}>
+    <StyledBurgerButton
+      aria-label="Menü"
+      open={open}
+      onClick={() => setOpen(!open)}
+      {...props}
+    >
       <StyledBar />
       <StyledBar />
       <StyledBar />

@@ -38,10 +38,16 @@ const LngChangerLine = () => {
 
   return (
     <LngChangerLineContainer>
-      <LngChangerLineItem onClick={() => handleSelect("en")}>
+      <LngChangerLineItem
+        onClick={() => handleSelect("en")}
+        aria-label="englisch"
+      >
         <LngP active={value === "en"}>en</LngP>
       </LngChangerLineItem>
-      <LngChangerLineItem onClick={() => handleSelect("de")}>
+      <LngChangerLineItem
+        onClick={() => handleSelect("de")}
+        aria-label="deutsch"
+      >
         <LngP active={value === "de"}>de</LngP>
       </LngChangerLineItem>
     </LngChangerLineContainer>

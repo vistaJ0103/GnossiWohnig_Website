@@ -72,7 +72,7 @@ const NavDropdown = (props) => {
   };
 
   return (
-    <NavDropdownButton to="" isActive={isActive}>
+    <NavDropdownButton to="" isActive={isActive} aria-label={props.label}>
       <StyledChevron />
       <Label>
         <NavP>{props.label}</NavP>

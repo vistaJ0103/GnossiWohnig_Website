@@ -88,12 +88,16 @@ const NavModal = (props) => {
             <NavModalButton
               active={open}
               onClick={() => setOpen(open ? false : true)}
+              aria-label={props.buttonLabel}
             >
               <Label>{props.buttonLabel}</Label>
             </NavModalButton>
           )}
           {props.buttonIcon && (
-            <NavIconButton onClick={() => setOpen(open ? false : true)}>
+            <NavIconButton
+              onClick={() => setOpen(open ? false : true)}
+              aria-label="Einstellungen"
+            >
               <Icon src={props.buttonIcon} />
             </NavIconButton>
           )}

@@ -31,8 +31,14 @@ const FilterInput = ({ filterText, onFilter, onClear }) => {
         placeholder={t("Infos.FilterBy")}
         value={filterText}
         onChange={onFilter}
+        aria-label={filterText}
       />
-      <IconButton icon={DeleteIcon} onClick={onClear} opacity={"0.4"} />
+      <IconButton
+        icon={DeleteIcon}
+        onClick={onClear}
+        opacity={"0.4"}
+        aria-label="löschen"
+      />
     </>
   );
 };

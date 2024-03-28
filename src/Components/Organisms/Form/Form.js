@@ -65,7 +65,7 @@ const Form = (props) => {
         return (
           <>
             {childrenWithProps}
-            <SendButton onClick={handleSubmit}>
+            <SendButton onClick={handleSubmit} aria-label="Lädt">
               <ButtonContent>
                 <Spinner />
               </ButtonContent>
@@ -80,7 +80,7 @@ const Form = (props) => {
         return (
           <>
             {childrenWithProps}
-            <SendButton onClick={handleSubmit}>
+            <SendButton onClick={handleSubmit} aria-label="Senden">
               <ButtonContent>
                 {props.sendButtonText}
                 <ArrowRight />

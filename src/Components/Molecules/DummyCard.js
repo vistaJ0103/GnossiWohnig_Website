@@ -26,7 +26,8 @@ const ObjectCard = ({ data,onclick }) => {
   const theme = useTheme();
 
   return (
-    <CardContainer onClick={()=>{ onclick()}}>
+    <CardContainer aria-label="Link zum Originalinserat" onClick={()=>{ onclick()}}>
+
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <Column
           width="15%"
@@ -35,7 +36,12 @@ const ObjectCard = ({ data,onclick }) => {
           marginTop="20px"
           marginBottom="20px"
         >
-          <Image width="110px" height="110px" src={imgUrl}></Image>
+          <Image
+            width="110px"
+            height="110px"
+            src={imgUrl}
+            alt="Vorschau"
+          ></Image>
         </Column>
         <Column
           width="75%"

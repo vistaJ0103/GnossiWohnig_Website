@@ -25,6 +25,7 @@ const AuthInput = (props) => {
   return (
     <InputField
       onChange={(e) => props.setValue(props.name, e.target.value)}
+      aria-label={props.name}
       {...props}
     />
   );

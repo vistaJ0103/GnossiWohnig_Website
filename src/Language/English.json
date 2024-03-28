@@ -37,7 +37,8 @@
         "LoggedInAs": "Logged in with:",
         "CancelSubscription": "Cancel Subscription",
         "CancelSubscriptionModalDescription": "Are you sure you want to cancel your subscription?",
-        "CancelSubscriptionCancelButton":"Keep Plan"
+        "CancelSubscriptionCancelButton":"Keep Plan",
+        "Reset": "Reset"
     },
     "Home": {
         "Title": "Find a Cooperative Apartement in Zürich",

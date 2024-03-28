@@ -37,7 +37,10 @@
         "LoggedInAs": "Eingeloggt mit der E-Mail:",
         "CancelSubscription": "Abonnement beenden",
         "CancelSubscriptionModalDescription": "Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?",
-        "CancelSubscriptionCancelButton":"Behalten Sie den Plan bei"
+        "CancelSubscriptionCancelButton":"Behalten Sie den Plan bei",
+        "Logout": "Abmelden",
+        "LoggedInAs": "Eingeloggt mit der E-Mail:",
+        "Reset": "zurücksetzen"
     },
     "Home": {
         "Title": "Genossenschaftswohnung in Zürich finden",
