@@ -78,8 +78,7 @@ const FreeObjects = () => {
   useEffect(() => {
     if (query.get("id") && isSignedIn) {
       callCloudFunctionWithAppCheck("getpaymentDetails", {
-        sessionId:
-          "cs_live_a1pyTpjZMJyz2qrrdvfv12bgpJpJqiGx08Zu0CqbWFQ1Q2m82IXv8OJh8D",
+        sessionId:query.get("id"),
       })
         .then((response) => {
           if(response?.data?.subscription){
