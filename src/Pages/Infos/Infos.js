@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import styled, { useTheme } from "styled-components";
 import { device } from "../../Components/Atoms/Devices";
 import Section from "../../Components/Atoms/Section";
-import InfoImage from "../../Assets/header2.jpg";
+import InfoImage from "../../Assets/header2.webp";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
 import Text from "../../Components/Atoms/Text";
 import { getCollection } from "../../firebaseProvider";
