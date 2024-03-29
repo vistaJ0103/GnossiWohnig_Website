@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import { useRef, useState } from "react";
 import Row from "../../../Atoms/Row";
 import { useOnClickOutside } from "../../Navigation/utils";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignOutButton = styled.button`
   border: 0;
@@ -82,6 +83,7 @@ align-items: center;
 `
 const Settings = (props) => {
   const node = useRef();
+  const history = useHistory();
 
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -102,12 +104,13 @@ const Settings = (props) => {
   });
 
   const CancelSubscription =()=>{
-    if(user && user?.uid && user?.subscription){
+    if(user && user?.uid && isSubscription){
       callCloudFunctionWithAppCheck("cancelSubscription", {
         subscriptionId:
         isSubscription,
       })
         .then((response) => {
+
           setIsOpen(false)
           updateUserSubscription()
           
@@ -124,6 +127,11 @@ const Settings = (props) => {
   const updateUserSubscription =()=>{
     if(user && user?.uid){
       setSubscription(user?.uid,false,"")
+      setIsSubscription("")
+      history.push({
+        pathname: '/stop-sound',
+          state: { name: 'Hello'}
+        });
     }
 
   }
