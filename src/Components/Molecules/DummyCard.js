@@ -3,9 +3,10 @@ import styled, { useTheme } from "styled-components";
 import Row from "../Atoms/Row";
 import Column from "../Atoms/Column";
 import Image from "../Atoms/Image";
-import DummyHouse from "../../Assets/dummy_house2.webp";
+import DummyHouse from "../../Assets/dummy_house2.png";
 import Text from "../Atoms/Text";
 import { useTranslation } from "react-i18next";
+import { device } from "../Atoms/Devices";
 
 const CardContainer = styled.button`
   margin-top: 20px;
@@ -26,6 +27,7 @@ const ObjectCard = ({ data,onclick }) => {
 
   return (
     <CardContainer aria-label="Link zum Originalinserat" onClick={()=>{ onclick()}}>
+
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <Column
           width="15%"
@@ -39,7 +41,6 @@ const ObjectCard = ({ data,onclick }) => {
             height="110px"
             src={imgUrl}
             alt="Vorschau"
-            loading="lazy"
           ></Image>
         </Column>
         <Column

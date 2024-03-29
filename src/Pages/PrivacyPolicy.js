@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import HeaderSection from "../Components/Atoms/HeaderSection";
-import HeaderImage from "../Assets/header2.webp";
+import HeaderImage from "../Assets/header2.jpg";
 import { device } from "../Components/Atoms/Devices";
 
 const ContentContainer = styled.div`

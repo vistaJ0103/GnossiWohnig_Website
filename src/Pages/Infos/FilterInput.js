@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { IconButton } from "../../Components/Atoms/Button";
-import DeleteIcon from "../../Assets/cross.webp";
+import DeleteIcon from "../../Assets/cross.png";
 
 const Input = styled.input.attrs((props) => ({
   type: "text",
