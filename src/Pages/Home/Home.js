@@ -5,7 +5,7 @@ import { device } from "../../Components/Atoms/Devices";
 import Section from "../../Components/Atoms/Section";
 import Text from "../../Components/Atoms/Text";
 import { getCollection } from "../../firebaseProvider";
-import BackgroundImage from "../../Assets/header2.jpg";
+import BackgroundImage from "../../Assets/header2.webp";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
 import AdApp from "./AdApp";
 import FreeObjects from "./FreeObjects";
@@ -33,9 +33,12 @@ const Title = styled.h1`
   }
 `;
 
+
+
 const Home = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  
   const [freeObjects, setFreeObjects] = useState();
 
   if (freeObjects == null) {
@@ -67,6 +70,7 @@ const Home = () => {
           {t("Home.Subtitle")}
         </Text>
       </HeaderSection>
+
       <Section
         pt="100px"
         pb="100px"

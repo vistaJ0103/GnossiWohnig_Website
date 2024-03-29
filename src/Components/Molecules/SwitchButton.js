@@ -14,6 +14,7 @@ const SwitchButton = ({ checked, onChange }, props) => {
       width={props.width || 40}
       height={props.height || 20}
       handleDiameter={props.handleSize || 18}
+      aria-label="Switch to change City"
     />
   );
 };

@@ -7,6 +7,11 @@ const Image = styled.img`
   display: block;
   margin-left: ${(props) => props.marginLeft || "auto"};
   margin-right: ${(props) => props.marginRight || "auto"};
+  lazy="loading" 
+
+    
+
+
 
   @media ${device.tablet} {
     width: ${(props) => props.widthTablet || props.width || "auto"};

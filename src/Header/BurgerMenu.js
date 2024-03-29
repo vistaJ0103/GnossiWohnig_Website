@@ -12,7 +12,8 @@ import NavModal from "../Components/Organisms/Navigation/NavModal/NavModal";
 import Settings from "../Components/Organisms/Auth/Settings/Settings";
 import Auth from "../Components/Organisms/Auth/Auth";
 import { useAuth } from "../firebaseProvider";
-import accountIcon from "../Assets/Icons/account3.png";
+import accountIcon from "../Assets/Icons/account3.webp";
+
 import { useOnClickOutside } from "../Components/Organisms/Navigation/utils";
 
 const BurgerMenu = ({ className }) => {
@@ -38,6 +39,8 @@ const BurgerMenu = ({ className }) => {
       );
     }
   };
+
+
 
   useOnClickOutside(node, () => setOpen(false));
 
