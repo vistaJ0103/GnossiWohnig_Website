@@ -129,8 +129,7 @@ const Settings = (props) => {
       setSubscription(user?.uid,false,"")
       setIsSubscription("")
       history.push({
-        pathname: '/stop-sound',
-          state: { name: 'Hello'}
+        pathname: '/',
         });
     }
 
