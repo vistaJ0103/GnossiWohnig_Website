@@ -12,7 +12,6 @@ import {
   streamCollection,
   useAuth,
 } from "../../firebaseProvider";
-
 import SwitchButton from "../../Components/Molecules/SwitchButton";
 import Text from "../../Components/Atoms/Text";
 import DummyCard from "../../Components/Molecules/DummyCard";
@@ -67,17 +66,14 @@ const FreeObjects = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const { isSignedIn, user } = useAuth();
 
- 
   // todo: replace with check for subscription status on revenuecat
-  if (proUser == null && user){
+  if (proUser == null && user) {
     checkIfProUser(user.uid).then((res) => {
       setProUser(res);
     });
   }
-  
-
-  
   useEffect(() => {
+
     if (query.get("id") && isSignedIn) {
       //Send subscription token
       callCloudFunctionWithAppCheck("sendStripeTokens", {
@@ -94,7 +90,6 @@ const FreeObjects = () => {
     }
   }, [query.get("id"), isSignedIn]);
 
-
   const sortObjects = (obj) => {
     var res = null;
 
@@ -106,7 +101,6 @@ const FreeObjects = () => {
     }
     return res;
   };
-  
 
   useEffect(() => {
     streamCollection(
@@ -201,7 +195,6 @@ const FreeObjects = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        
         <Row justify="center" isRow={true} isRowOnMobile={true}>
           <stripe-buy-button
             client-reference-id={user?.uid}
@@ -209,7 +202,6 @@ const FreeObjects = () => {
             publishable-key="pk_live_51Oc542A0PZbui0YFdbDHthOxmRJ1iQTynGsUO43SVyfAu4Qnk5HxDNqpGSIVxeI4xdkt9FXfCE008mcVEeaW298L00zUHCEiL0"
           ></stripe-buy-button>
         </Row>
-        
       </Modal>
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <SubTitle>{t("Home.FreeObjects")}</SubTitle>
@@ -232,17 +224,6 @@ const FreeObjects = () => {
               </Text>
             </Column>
           </Row>
-
-          {freeObjects === null ? (
-            <Row justify="center" isRow={true}>
-              <Column marginTop="50px">
-                <Spinner />
-              </Column>
-            </Row>
-          ) : (
-            <></>
-          )  
-          }
           {objectsInView ? (
             objectsInView.length === 0 ? (
               <Text marginTop="50px" size="18px">
@@ -253,9 +234,7 @@ const FreeObjects = () => {
                 proUser ? (
                   <Card key={element.id} data={element} />
                 ) : (
-                  
                   <DummyCard
-                  
                     onclick={() => {
                       if (user && user?.uid) {
                         setIsOpen(true);
@@ -275,7 +254,6 @@ const FreeObjects = () => {
             </Row>
           )}
         </Column>
-
       </Row>
     </>
   );

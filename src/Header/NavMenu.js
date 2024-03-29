@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+
 import NavContainer from "../Components/Organisms/Navigation/NavMenu/NavContainer";
 import NavLink from "../Components/Organisms/Navigation/NavMenu/NavLink";
 import NavP from "../Components/Organisms/Navigation/NavMenu/NavP";
@@ -7,7 +8,7 @@ import Settings from "../Components/Organisms/Auth/Settings/Settings";
 import NavModal from "../Components/Organisms/Navigation/NavModal/NavModal";
 import Auth from "../Components/Organisms/Auth/Auth";
 import Placeholder from "../Components/Atoms/Placeholder";
-import accountIcon from "../Assets/Icons/account3.webp";
+import accountIcon from "../Assets/Icons/account3.png";
 import { useAuth } from "../firebaseProvider";
 
 const checkHomeActive = () => {
@@ -37,7 +38,6 @@ const NavMenu = ({ className }) => {
     }
   };
 
- 
   return (
     <NavContainer className={className}>
       <NavLink to="/" isActive={checkHomeActive}>
@@ -49,7 +49,7 @@ const NavMenu = ({ className }) => {
       <NavLink to="/contact">
         <NavP>{t("Nav.Contact")}</NavP>
       </NavLink>
-     {getAuthElement()}
+      {getAuthElement()}
     </NavContainer>
   );
 };

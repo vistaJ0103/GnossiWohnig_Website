@@ -1,4 +1,4 @@
-import {  ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Header from "./Header/Header";
 import Home from "./Pages/Home/Home";
@@ -43,10 +43,16 @@ const theme = {
   },
 };
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: ${(props) => props.theme.typography.fontFamiliy};
+  }
+`;
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <BrowserRouter>
         <Header />
         <Switch>

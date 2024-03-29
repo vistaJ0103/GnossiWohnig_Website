@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Text from "../../Atoms/Text";
 import { RoundIconButton } from "../../Atoms/Button";
-import googleIcon from "../../../Assets/Icons/google.webp";
+import googleIcon from "../../../Assets/Icons/google.png";
 import { signInWithGoogle, useAuth } from "../../../firebaseProvider";
 import { useState } from "react";
 

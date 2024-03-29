@@ -3,7 +3,7 @@ import Form from "../Components/Organisms/Form/Form";
 import FormInput from "../Components/Organisms/Form/FormInput";
 import { useTranslation } from "react-i18next";
 import HeaderSection from "../Components/Atoms/HeaderSection";
-import ContactImage from "../Assets/header2.webp";
+import ContactImage from "../Assets/header2.jpg";
 import Text from "../Components/Atoms/Text";
 import { device } from "../Components/Atoms/Devices";
 

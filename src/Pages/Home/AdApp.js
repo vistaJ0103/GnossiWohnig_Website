@@ -7,9 +7,9 @@ import Text from "../../Components/Atoms/Text";
 import Image from "../../Components/Atoms/Image";
 import { CustomList } from "../../Components/Molecules/List";
 import { IconLinkButton } from "../../Components/Atoms/Button";
-import LogoAppStore from "../../Assets/logo_app_store.webp";
-import LogoPlayStore from "../../Assets/logo_play_store.webp";
-import AppLogo from "../../Assets/app_logo.webp";
+import LogoAppStore from "../../Assets/logo_app_store.png";
+import LogoPlayStore from "../../Assets/logo_play_store.png";
+import AppLogo from "../../Assets/app_logo.png";
 import Background from "../../Components/Atoms/Background";
 import styled, { useTheme } from "styled-components";
 
@@ -29,7 +29,7 @@ const AdApp = () => {
     <Row alignItems="center">
       <Column width="30%" marginBottomTablet="30px">
         <ImgContainer>
-          <Image src={AppLogo} width="120px" height="120px"  alt="Logo" loading="lazy" />
+          <Image src={AppLogo} width="120px" alt="Logo" />
         </ImgContainer>
         <Text size="18px" marginTop="20px" weight="400">
           {t("Home.App")}
@@ -40,8 +40,6 @@ const AdApp = () => {
           marginTop="10px"
           marginBottom="10px"
           marker={Tick}
-          markerWidth="39px"
-          markerHeight="38px"
           list={[
             <Text align="left">{t("Home.AppArgue1")}</Text>,
             <Text align="left">{t("Home.AppArgue2")}</Text>,
@@ -62,16 +60,13 @@ const AdApp = () => {
           <Row justify="center" isRow={true} isRowOnMobile={true}>
             <IconLinkButton
               aria-label="App Store"
-              link="/"
+              link=""
               icon={LogoAppStore}
-              alt="App Store"
-
             />
             <IconLinkButton
               aria-label="Play Store"
               link="https://play.google.com/store/apps/details?id=com.nelinik.gnossi_wohnig"
               icon={LogoPlayStore}
-              alt="Play Store"
             />
           </Row>
         </Background>

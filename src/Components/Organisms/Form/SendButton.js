@@ -26,8 +26,6 @@ export const ButtonContent = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: ${(props) => props.theme.colors.white};
-
 `;
 
 export const Spinner = styled.div`
