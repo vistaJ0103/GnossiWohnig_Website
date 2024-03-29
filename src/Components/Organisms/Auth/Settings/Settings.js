@@ -1,17 +1,23 @@
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import { callCloudFunctionWithAppCheck, checkIfUserSubscription, setSubscription, signOut, useAuth } from "../../../../firebaseProvider";
+import styled, { useTheme } from "styled-components";
+import {
+  callCloudFunctionWithAppCheck,
+  checkIfUserSubscription,
+  setSubscription,
+  signOut,
+  useAuth,
+} from "../../../../firebaseProvider";
 import Text from "../../../Atoms/Text";
-import Modal from "react-modal";
 import { useRef, useState } from "react";
 import Row from "../../../Atoms/Row";
+import Divider from "../../../Atoms/Divider";
 import { useOnClickOutside } from "../../Navigation/utils";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignOutButton = styled.button`
   border: 0;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: #bb544d;
   border-radius: 50px;
   width: fit-content;
   padding: 12px 20px;
@@ -33,7 +39,7 @@ const CancelSubscriptionButton = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom :8px;
+  margin-bottom: 8px;
   @media screen and (max-width: 768px) {
     padding: 10px 15px;
   }
@@ -48,7 +54,7 @@ const ConfirmButton = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom :8px;
+  margin-bottom: 8px;
   @media screen and (max-width: 768px) {
     padding: 10px 15px;
   }
@@ -61,26 +67,26 @@ const CancelButton = styled.button`
   background-color: #fff;
   padding: 12px 20px;
   display: block;
-  margin-right:14px;
+  margin-right: 14px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom :8px;
-  border:1px solid gray;
+  margin-bottom: 8px;
+  border: 1px solid gray;
   @media screen and (max-width: 768px) {
     padding: 10px 15px;
   }
 `;
 
 const Container = styled.div`
-cursor: pointer;
-margin-top:10px;
-display: flex;
-justify-content: center;
-align-items: center;
-@media screen and (max-width: 768px) {
-  padding: 10px 15px;
-}
-`
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    padding: 10px 15px;
+  }
+`;
 const Settings = (props) => {
   const node = useRef();
   const history = useHistory();
@@ -89,12 +95,14 @@ const Settings = (props) => {
   const { user } = useAuth();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isSubscription, setIsSubscription] = useState(null);
- // todo: replace with check for subscription status on revenuecat
- if ( user && user?.uid) {
-  checkIfUserSubscription(user.uid).then((res) => {
-    setIsSubscription(res);
-  });
-}
+  const theme = useTheme();
+
+  // todo: replace with check for subscription status on revenuecat
+  if (user && user?.uid) {
+    checkIfUserSubscription(user.uid).then((res) => {
+      setIsSubscription(res);
+    });
+  }
   const handleSignOut = () => {
     signOut();
   };
@@ -103,82 +111,99 @@ const Settings = (props) => {
     setIsOpen(false);
   });
 
-  const CancelSubscription =()=>{
-    if(user && user?.uid && isSubscription){
+  const CancelSubscription = () => {
+    if (user && user?.uid && isSubscription) {
       callCloudFunctionWithAppCheck("cancelSubscription", {
-        subscriptionId:
-        isSubscription,
+        subscriptionId: isSubscription,
       })
         .then((response) => {
-
-          setIsOpen(false)
-          updateUserSubscription()
-          
+          setIsOpen(false);
+          updateUserSubscription();
         })
         .catch((error) => {
-          setIsOpen(false)
+          setIsOpen(false);
           console.log("Error response", error);
         });
-    }else{
-      setIsOpen(false)
+    } else {
+      setIsOpen(false);
     }
-   
-  }
-  const updateUserSubscription =()=>{
-    if(user && user?.uid){
-      setSubscription(user?.uid,false,"")
-      setIsSubscription("")
+  };
+  const updateUserSubscription = () => {
+    if (user && user?.uid) {
+      setSubscription(user?.uid, false, "");
+      setIsSubscription("");
       history.push({
-        pathname: '/',
-        });
+        pathname: "/",
+      });
     }
-
-  }
-  
+  };
 
   return (
     <>
-    
-       {modalIsOpen==true && <div ref={node}><Row justify="center" isRow={true} isRowOnMobile={true}>
-        {t("Auth.CancelSubscriptionModalDescription")} 
-        </Row>
-     <Container>
-        
-      <CancelButton onClick={()=>setIsOpen(false)}>
-        <Text color="#000000" size="13px">
-          {t("Auth.CancelSubscriptionCancelButton")}
-        </Text>
-      </CancelButton>
-      <ConfirmButton onClick={()=>{CancelSubscription()}}>
-<Text color="#ffffff" size="13px" >
-          {t("Auth.CancelSubscription")}
-        </Text>
-</ConfirmButton>
-      </Container></div>}
-     {modalIsOpen==false &&<>
-      
-      <Text size="14px" weight="bold" marginBottom="8px">
-        {t("Auth.LoggedInAs")}
-      </Text>
-      {user && (
-        <Text size="14px" marginBottom="20px">
-          {user.email}
-        </Text>
+      {modalIsOpen == true && (
+        <div ref={node}>
+          <Row justify="center" isRow={true} isRowOnMobile={true}>
+            {t("Auth.CancelSubscriptionModalDescription")}
+          </Row>
+          <Container>
+            <CancelButton onClick={() => setIsOpen(false)}>
+              <Text color="#000000" size="13px">
+                {t("Auth.CancelSubscriptionCancelButton")}
+              </Text>
+            </CancelButton>
+            <ConfirmButton
+              onClick={() => {
+                CancelSubscription();
+              }}
+            >
+              <Text color="#ffffff" size="13px">
+                {t("Auth.CancelSubscription")}
+              </Text>
+            </ConfirmButton>
+          </Container>
+        </div>
       )}
+      {modalIsOpen == false && (
+        <>
+          <Text size="14px" weight="bold" marginBottom="8px">
+            {t("Auth.LoggedInAs")}
+          </Text>
+          {user && (
+            <Text size="14px" marginBottom="20px">
+              {user.email}
+            </Text>
+          )}
 
-
-
-{isSubscription &&<CancelSubscriptionButton onClick={()=>{setIsOpen(true)}}>
-<Text color="#ffffff" size="13px" >
-          {t("Auth.CancelSubscription")}
-        </Text>
-</CancelSubscriptionButton>}
-      <SignOutButton onClick={handleSignOut} aria-label="Abmelden">
-        <Text color="#ffffff" size="13px">
-          {t("Auth.Logout")}
-        </Text>
-      </SignOutButton>
-      </> }
+          <SignOutButton onClick={handleSignOut} aria-label="Abmelden">
+            <Text color="#ffffff" size="13px">
+              {t("Auth.Logout")}
+            </Text>
+          </SignOutButton>
+          {isSubscription && (
+            <>
+              <Divider
+                width="100%"
+                color={theme.colors.grey}
+                height="1px"
+                marginTop="30px"
+                marginBottom="30px"
+              />
+              <Text size="14px" weight="bold" marginBottom="8px">
+                {t("Auth.ProUser")}
+              </Text>
+              <CancelSubscriptionButton
+                onClick={() => {
+                  setIsOpen(true);
+                }}
+              >
+                <Text color="#ffffff" size="13px">
+                  {t("Auth.CancelSubscription")}
+                </Text>
+              </CancelSubscriptionButton>
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };
