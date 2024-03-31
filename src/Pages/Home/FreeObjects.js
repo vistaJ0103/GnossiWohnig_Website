@@ -9,6 +9,7 @@ import {
   callCloudFunctionWithAppCheck,
   checkIfProUser,
   setProUserStatus,
+  setSubscription,
   streamCollection,
   useAuth,
 } from "../../firebaseProvider";
@@ -18,6 +19,7 @@ import DummyCard from "../../Components/Molecules/DummyCard";
 import Spinner from "../../Components/Atoms/Spinner";
 import Modal from "react-modal";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+
 const SubTitle = styled.h2`
   font-size: 30px;
   margin-top: 20px;
@@ -46,6 +48,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    border: "2px solid #4287a1",
+    padding: "20px",
   },
 };
 const FreeObjects = () => {
@@ -72,10 +76,21 @@ const FreeObjects = () => {
       setProUser(res);
     });
   }
-  useEffect(() => {
 
+  useEffect(() => {
     if (query.get("id") && isSignedIn) {
-      //Send subscription token
+      callCloudFunctionWithAppCheck("getpaymentDetails", {
+        sessionId: query.get("id"),
+      })
+        .then((response) => {
+          if (response?.data?.subscription) {
+            updateUserSubscription(response?.data?.subscription);
+          }
+        })
+        .catch((error) => {
+          console.log("Error response", error);
+        });
+
       callCloudFunctionWithAppCheck("sendStripeTokens", {
         app_user_id: user.uid,
         fetch_token: query.get("id"),
@@ -89,6 +104,12 @@ const FreeObjects = () => {
         });
     }
   }, [query.get("id"), isSignedIn]);
+
+  const updateUserSubscription = (subscription) => {
+    if (user && user?.uid && subscription) {
+      setSubscription(user?.uid, true, subscription);
+    }
+  };
 
   const sortObjects = (obj) => {
     var res = null;
@@ -193,7 +214,8 @@ const FreeObjects = () => {
         isOpen={modalIsOpen}
         onRequestClose={() => setIsOpen(false)}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="PaymentModal"
+        ariaHideApp={false}
       >
         <Row justify="center" isRow={true} isRowOnMobile={true}>
           <stripe-buy-button

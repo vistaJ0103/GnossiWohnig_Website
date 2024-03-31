@@ -33,6 +33,11 @@
         "EmailNotVerified": "Deine E-Mail Adresse ist nicht bestätigt. Wir haben dir die E-Mail zur Bestätigung gerade nochmal geschickt.",
         "RegisterSuccess": "Erfolgreich Registriert. Bestätige deine E-Mail Adresse über den Link den wir dir per Mail geschickt haben.",
         "PasswordResetSuccess": "Du hast eine E-Mail erhalten um dein Passwort zurückzusetzen.",
+        "Logout": "Logout",
+        "LoggedInAs": "Eingeloggt mit der E-Mail:",
+        "CancelSubscription": "Abonnement beenden",
+        "CancelSubscriptionModalDescription": "Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten?",
+        "CancelSubscriptionCancelButton":"Behalten Sie den Plan bei",
         "Logout": "Abmelden",
         "LoggedInAs": "Eingeloggt mit der E-Mail:",
         "Reset": "zurücksetzen"
