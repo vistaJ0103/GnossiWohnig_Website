@@ -2,14 +2,14 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import Row from "../../Components/Atoms/Row";
 import Column from "../../Components/Atoms/Column";
-import Tick from "../../Assets/Icons/tick.png";
+import Tick from "../../Assets/Icons/tick.webp";
 import Text from "../../Components/Atoms/Text";
 import Image from "../../Components/Atoms/Image";
 import { CustomList } from "../../Components/Molecules/List";
 import { IconLinkButton } from "../../Components/Atoms/Button";
-import LogoAppStore from "../../Assets/logo_app_store.png";
-import LogoPlayStore from "../../Assets/logo_play_store.png";
-import AppLogo from "../../Assets/app_logo.png";
+import LogoAppStore from "../../Assets/logo_app_store.webp";
+import LogoPlayStore from "../../Assets/logo_play_store.webp";
+import AppLogo from "../../Assets/app_logo.webp";
 import Background from "../../Components/Atoms/Background";
 import styled, { useTheme } from "styled-components";
 
@@ -29,7 +29,7 @@ const AdApp = () => {
     <Row alignItems="center">
       <Column width="30%" marginBottomTablet="30px">
         <ImgContainer>
-          <Image src={AppLogo} width="120px" alt="Logo" />
+          <Image src={AppLogo} width="120px" height="120px" alt="Logo" />
         </ImgContainer>
         <Text size="18px" marginTop="20px" weight="400">
           {t("Home.App")}

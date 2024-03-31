@@ -5,7 +5,7 @@ import { device } from "../../Components/Atoms/Devices";
 import Section from "../../Components/Atoms/Section";
 import Text from "../../Components/Atoms/Text";
 import { getCollection } from "../../firebaseProvider";
-import BackgroundImage from "../../Assets/header2.jpg";
+import BackgroundImage from "../../Assets/header2.webp";
 import HeaderSection from "../../Components/Atoms/HeaderSection";
 import AdApp from "./AdApp";
 import FreeObjects from "./FreeObjects";

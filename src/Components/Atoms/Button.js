@@ -9,6 +9,7 @@ export const TextButton = styled.button`
 
 const Icon = styled.img`
   height: 35px;
+  width: 116px;
   display: inline-block;
   margin: 0px 10px;
   box-shadow: 0px 0px 7px 2px rgba(135, 135, 135, 0.3);
@@ -16,6 +17,7 @@ const Icon = styled.img`
 
   @media ${device.mobile} {
     height: 30px;
+    width: 116px;
   }
 `;
 

@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components";
 import Row from "../Atoms/Row";
 import Column from "../Atoms/Column";
 import Image from "../Atoms/Image";
-import DummyHouse from "../../Assets/dummy_house2.png";
+import DummyHouse from "../../Assets/dummy_house2.webp";
 import Text from "../Atoms/Text";
 import { useTranslation } from "react-i18next";
 import { device } from "../Atoms/Devices";
@@ -20,14 +20,13 @@ const CardContainer = styled.button`
   cursor: pointer;
 `;
 
-const ObjectCard = ({ data,onclick }) => {
+const ObjectCard = ({ data }) => {
   const imgUrl = data.previewImgUrl === "" ? DummyHouse : data.previewImgUrl;
   const { t } = useTranslation();
   const theme = useTheme();
 
   return (
-    <CardContainer aria-label="Link zum Originalinserat" onClick={()=>{ onclick()}}>
-
+    <CardContainer aria-label="Link zum Originalinserat">
       <Row justify="center" isRow={true} isRowOnMobile={true}>
         <Column
           width="15%"

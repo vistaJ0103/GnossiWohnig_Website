@@ -60,8 +60,8 @@ export const CustomList = (props) => {
           marginLeft={props.marginLeft}
         >
           <Image
-            width={props.markerWidth}
-            height={props.markerHeight}
+            width="38px"
+            height="38px"
             marginLeft="0px"
             marginRight="5px"
             src={props.marker}

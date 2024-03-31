@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/create-checkout-session",
+        "function": "createCheckoutSession"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

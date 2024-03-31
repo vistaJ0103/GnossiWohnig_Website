@@ -35,9 +35,6 @@
         "PasswordResetSuccess": "We sent you an email to reset your password.",
         "Logout": "Logout",
         "LoggedInAs": "Logged in with:",
-        "CancelSubscription": "Cancel Subscription",
-        "CancelSubscriptionModalDescription": "Are you sure you want to cancel your subscription?",
-        "CancelSubscriptionCancelButton":"Keep Plan",
         "Reset": "Reset"
     },
     "Home": {

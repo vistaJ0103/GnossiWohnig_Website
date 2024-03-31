@@ -1,15 +1,15 @@
+import React, { Suspense, lazy } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Header from "./Header/Header";
-import Home from "./Pages/Home/Home";
-import Infos from "./Pages/Infos/Infos";
-import Contact from "./Pages/Contact";
-import PricacyPolicy from "./Pages/PrivacyPolicy";
-import TermsOfService from "./Pages/TermsOfService";
-
 import "./App.css";
-import Footer from "./Footer/Footer";
 
+const Header = lazy(() => import("./Header/Header"));
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Infos = lazy(() => import("./Pages/Infos/Infos"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const PricacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./Pages/TermsOfService"));
+const Footer = lazy(() => import("./Footer/Footer"));
 const theme = {
   colors: {
     primary: "#4287a1",
@@ -54,16 +54,18 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route path="/contact" component={Contact} />
-          <Route path="/infos" component={Infos} />
-          <Route path="/privacypolicy" component={PricacyPolicy} />
-          <Route path="/termsofservice" component={TermsOfService} />
-          <Route path="/" component={Home} />
-          <Redirect to="/" />
-        </Switch>
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Header />
+          <Switch>
+            <Route path="/contact" component={Contact} />
+            <Route path="/infos" component={Infos} />
+            <Route path="/privacypolicy" component={PricacyPolicy} />
+            <Route path="/termsofservice" component={TermsOfService} />
+            <Route path="/" component={Home} />
+            <Redirect to="/" />
+          </Switch>
+          <Footer />
+        </Suspense>
       </BrowserRouter>
     </ThemeProvider>
   );
